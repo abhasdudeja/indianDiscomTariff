@@ -64,8 +64,14 @@ export async function loadStatesDataFromCSV(csvPath = '/states-data.csv') {
               }
 
               // If this row has utility data
-              if ((row.utility_id?.trim() && row.utility_name?.trim()) || row.utility_id) {
-                let utility = state.utilities.find((u) => u.id === row.utility_id.trim())
+              // Support both detailed schema (with utility_id) and simple schemas like public/states-data.csv
+              const rawUtilityId = row.utility_id?.trim() || row.utility_name?.trim()
+              const rawUtilityName = row.utility_name?.trim()
+              const hasUtilityData = !!rawUtilityId || !!rawUtilityName
+
+              if (hasUtilityData) {
+                const utilityId = rawUtilityId || rawUtilityName
+                let utility = state.utilities.find((u) => u.id === utilityId)
 
                 // Create utility if first time we see it
                 if (!utility) {
@@ -84,10 +90,11 @@ export async function loadStatesDataFromCSV(csvPath = '/states-data.csv') {
                   }
 
                   utility = {
-                    id: row.utility_id.trim(),
-                    name: row.utility_name?.trim() || row.utility_id.trim(), // Fallback name
-                    type: row.utility_type?.trim() ?? 'DISCOM',
-                    description: row.utility_description?.trim() || undefined, // Use utility_description column
+                    id: utilityId,
+                    name: rawUtilityName || utilityId, // Fallback name
+                    // For simple CSV (states-data.csv), use discom_type as the utility "type" if utility_type is not present
+                    type: row.utility_type?.trim() || row.discom_type?.trim() || 'DISCOM',
+                    description: row.utility_description?.trim() || undefined,
                     additionalInfo: additionalInfo.length > 0 ? additionalInfo : undefined,
                     yearlyTariffs: [],
                   }

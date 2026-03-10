@@ -21,19 +21,41 @@ const IndiaMap = () => {
   const handleStateHover = useCallback((stateIdentifier, event) => {
     // Try to get state ID from either state code or state name
     const stateId = getIdFromStateCodeOrName(stateIdentifier)
+
+    // Try to find full state info from loaded data
+    let state = null
     if (stateId && statesData.length > 0) {
-      const state = statesData.find(s => s.id === stateId)
-      if (state) {
-        setHoveredState(state)
-        if (event) {
-          setTooltipPosition({ x: event.clientX, y: event.clientY })
-        }
-        setShowTooltip(true)
-      }
-    } else {
-      // Debug: log if state not found
-      console.log('Hover - State not found in mapping. Input:', stateIdentifier)
+      state = statesData.find(s => s.id === stateId) || null
     }
+
+    // If we don't have data for this state, still show a basic tooltip with the state name
+    if (!state) {
+      // Derive a readable name:
+      // - Prefer the original identifier (often already a proper name)
+      // - Else, build from stateId (karnataka -> Karnataka, andhra-pradesh -> Andhra Pradesh)
+      const baseName = typeof stateIdentifier === 'string' && stateIdentifier.trim()
+        ? stateIdentifier.trim()
+        : (stateId || '').trim()
+
+      const prettyName = baseName
+        ? baseName
+            .replace(/[-_]+/g, ' ')
+            .toLowerCase()
+            .replace(/\b\w/g, (ch) => ch.toUpperCase())
+        : 'Unknown State/UT'
+
+      state = {
+        id: stateId || baseName || 'unknown',
+        name: prettyName,
+        utilities: [],
+      }
+    }
+
+    setHoveredState(state)
+    if (event) {
+      setTooltipPosition({ x: event.clientX, y: event.clientY })
+    }
+    setShowTooltip(true)
   }, [statesData])
 
   const handleStateLeave = useCallback(() => {
