@@ -5,7 +5,7 @@ import DocumentView from './components/DocumentView'
 import UtilitiesList from './components/UtilitiesList'
 import UtilityDetail from './components/UtilityDetail'
 import './App.css'
-import { Analytics } from "@vercel/analytics/next"
+import { Analytics } from "@vercel/analytics/react"
 
 function App() {
   return (
@@ -17,6 +17,7 @@ function App() {
           <Route path="/utilities/:stateId" element={<UtilitiesList />} />
           <Route path="/utility/:stateId/:utilityId" element={<UtilityDetail />} />
         </Routes>
+        <Analytics />
       </StatesDataProvider>
     </div>
   )
