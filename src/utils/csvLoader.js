@@ -76,6 +76,8 @@ export async function loadStatesDataFromCSV(csvPath = '/states-data.csv') {
                 // Create utility if first time we see it
                 if (!utility) {
                   const additionalInfo = []
+
+                  // Generic additional info label/value pairs
                   if (row.additional_info_1_label?.trim() && row.additional_info_1_value?.trim()) {
                     additionalInfo.push({
                       label: row.additional_info_1_label.trim(),
@@ -86,6 +88,20 @@ export async function loadStatesDataFromCSV(csvPath = '/states-data.csv') {
                     additionalInfo.push({
                       label: row.additional_info_2_label.trim(),
                       value: row.additional_info_2_value.trim(),
+                    })
+                  }
+
+                  // Map simple states-data.csv columns into structured fields
+                  if (row.service_territory) {
+                    additionalInfo.push({
+                      label: 'Service Territory',
+                      value: row.service_territory,
+                    })
+                  }
+                  if (row.regulator_serc) {
+                    additionalInfo.push({
+                      label: 'Regulator (SERC)',
+                      value: row.regulator_serc,
                     })
                   }
 
