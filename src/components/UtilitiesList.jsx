@@ -21,12 +21,25 @@ const UtilitiesList = () => {
     }
 
     if (!state) {
+        // When we have a valid route param but no data in our CSV,
+        // still show a clear message and a prominent Back to Map button.
+        const prettyName = stateId
+            ? stateId
+                .replace(/[-_]+/g, ' ')
+                .toLowerCase()
+                .replace(/\b\w/g, (ch) => ch.toUpperCase())
+            : 'this state'
+
         return (
             <div className="utilities-list-container">
-                <div className="error-container">
-                    <h2>State not found</h2>
-                    <p>The state you're looking for doesn't exist.</p>
-                    <Link to="/" className="back-button">Back to Map</Link>
+                <div className="utilities-header">
+                    <button onClick={() => navigate('/')} className="back-button">
+                        ← Back to Map
+                    </button>
+                    <h1>No EV Charging Data - {prettyName}</h1>
+                </div>
+                <div className="no-utilities">
+                    <p>No EV charging tariff information is available yet for {prettyName}.</p>
                 </div>
             </div>
         )
