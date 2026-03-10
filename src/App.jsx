@@ -5,6 +5,7 @@ import DocumentView from './components/DocumentView'
 import UtilitiesList from './components/UtilitiesList'
 import UtilityDetail from './components/UtilityDetail'
 import './App.css'
+import { Analytics } from "@vercel/analytics/next"
 
 function App() {
   return (
