@@ -1,0 +1,338 @@
+.utility-detail-container {
+  min-height: 100vh;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  padding: 20px;
+}
+
+.utility-detail-header {
+  max-width: 1200px;
+  margin: 0 auto 30px;
+  color: white;
+}
+
+.header-content {
+  margin-top: 20px;
+}
+
+.header-content h1 {
+  font-size: 2.5rem;
+  font-weight: 700;
+  margin: 0 0 15px 0;
+}
+
+.utility-meta {
+  display: flex;
+  gap: 15px;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.utility-type-badge {
+  background: rgba(255, 255, 255, 0.2);
+  padding: 8px 16px;
+  border-radius: 20px;
+  font-weight: 600;
+  font-size: 0.9rem;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+.state-name {
+  font-size: 1.1rem;
+  opacity: 0.9;
+}
+
+.back-button {
+  background: rgba(255, 255, 255, 0.2);
+  color: white;
+  border: 2px solid rgba(255, 255, 255, 0.3);
+  padding: 10px 20px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 1rem;
+  transition: all 0.3s ease;
+  text-decoration: none;
+  display: inline-block;
+  margin-bottom: 20px;
+}
+
+.back-button:hover {
+  background: rgba(255, 255, 255, 0.3);
+  border-color: rgba(255, 255, 255, 0.5);
+  transform: translateX(-5px);
+}
+
+.utility-detail-content {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.info-section {
+  background: white;
+  border-radius: 12px;
+  padding: 30px;
+  margin-bottom: 25px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.info-section h2 {
+  color: #333;
+  font-size: 1.8rem;
+  margin: 0 0 20px 0;
+  padding-bottom: 15px;
+  border-bottom: 2px solid #667eea;
+}
+
+.info-section p {
+  color: #666;
+  line-height: 1.8;
+  font-size: 1.05rem;
+}
+
+.tariff-section {
+  background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+}
+
+.tariff-category-badge {
+  display: inline-block;
+  background: #667eea;
+  color: white;
+  padding: 6px 14px;
+  border-radius: 20px;
+  font-size: 0.9rem;
+  font-weight: 600;
+  margin: 0 0 12px 0;
+}
+
+.tariff-intro {
+  color: #555;
+  margin: 0 0 20px 0;
+  font-size: 0.95rem;
+}
+
+.tariff-table-wrapper {
+  overflow-x: auto;
+  margin-top: 15px;
+}
+
+.tariff-table {
+  width: 100%;
+  border-collapse: collapse;
+  background: white;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.tariff-table th,
+.tariff-table td {
+  padding: 16px 20px;
+  text-align: left;
+  border-bottom: 1px solid #eee;
+}
+
+.tariff-table th {
+  background: #667eea;
+  color: white;
+  font-weight: 600;
+  font-size: 0.95rem;
+}
+
+.tariff-table tbody tr:last-child td {
+  border-bottom: none;
+}
+
+.tariff-table tbody tr:hover {
+  background: #f8f9ff;
+}
+
+.tariff-table td:nth-child(1) {
+  font-weight: 600;
+  color: #333;
+}
+
+.tariff-table td:nth-child(2),
+.tariff-table td:nth-child(5),
+.tariff-table td:nth-child(6) {
+  color: #667eea;
+  font-weight: 600;
+}
+
+.tod-cell.tod-surcharge {
+  color: #c2410c;
+  font-weight: 600;
+}
+
+.tod-cell.tod-subsidy {
+  color: #15803d;
+  font-weight: 600;
+}
+
+.tariff-tod-legend {
+  font-size: 0.9rem;
+  color: #666;
+  margin: 15px 0 0;
+}
+
+.tariff-hours-box {
+  margin-top: 20px;
+  padding: 16px 20px;
+  background: rgba(255, 255, 255, 0.8);
+  border-radius: 10px;
+  border-left: 4px solid #667eea;
+}
+
+.tariff-hours-title {
+  font-size: 1rem;
+  color: #333;
+  margin: 0 0 10px 0;
+  font-weight: 600;
+}
+
+.tariff-hours-row {
+  font-size: 0.95rem;
+  color: #555;
+  margin-bottom: 6px;
+}
+
+.tariff-hours-row:last-child {
+  margin-bottom: 0;
+}
+
+.tariff-hours-year {
+  font-weight: 600;
+  margin-right: 8px;
+  color: #333;
+}
+
+.tariff-hours-sep {
+  margin: 0 4px;
+  color: #999;
+}
+
+.tariff-notes-box {
+  margin-top: 16px;
+  padding: 12px 16px;
+  background: #fffbea;
+  border-radius: 8px;
+  font-size: 0.9rem;
+  color: #666;
+  border: 1px solid #f5e6b3;
+}
+
+.tariff-order-links {
+  margin-top: 16px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.tariff-order-anchor {
+  color: #667eea;
+  font-weight: 600;
+  text-decoration: none;
+  font-size: 0.95rem;
+}
+
+.tariff-order-anchor:hover {
+  text-decoration: underline;
+}
+
+.contact-section {
+  background: linear-gradient(135deg, #e0f2fe 0%, #b3e5fc 100%);
+}
+
+.contact-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  margin-top: 20px;
+}
+
+.contact-item {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  padding: 15px;
+  background: white;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+}
+
+.contact-label {
+  font-weight: 600;
+  color: #555;
+  min-width: 100px;
+}
+
+.contact-value {
+  color: #667eea;
+  text-decoration: none;
+  font-weight: 500;
+  transition: color 0.3s ease;
+}
+
+.contact-value:hover {
+  color: #764ba2;
+  text-decoration: underline;
+}
+
+.additional-info-section {
+  background: linear-gradient(135deg, #fff5f5 0%, #ffe0e0 100%);
+}
+
+.info-table {
+  margin-top: 20px;
+}
+
+.info-row {
+  display: flex;
+  justify-content: space-between;
+  padding: 15px;
+  background: white;
+  border-radius: 8px;
+  margin-bottom: 10px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+}
+
+.info-label {
+  font-weight: 600;
+  color: #555;
+}
+
+.info-value {
+  color: #333;
+  font-weight: 500;
+}
+
+.loading-container,
+.error-container {
+  max-width: 1200px;
+  margin: 50px auto;
+  text-align: center;
+  background: white;
+  padding: 40px;
+  border-radius: 12px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+@media (max-width: 768px) {
+  .header-content h1 {
+    font-size: 2rem;
+  }
+
+  .tariff-table th,
+  .tariff-table td {
+    padding: 12px 14px;
+    font-size: 0.9rem;
+  }
+
+  .contact-item {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .info-row {
+    flex-direction: column;
+    gap: 5px;
+  }
+}
