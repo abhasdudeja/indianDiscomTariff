@@ -6,7 +6,7 @@ import UtilitiesList from './components/UtilitiesList'
 import UtilityDetail from './components/UtilityDetail'
 import './App.css'
 import { Analytics } from "@vercel/analytics/react"
-import { SpeedInsights } from "@vercel/speed-insights/next"
+import { SpeedInsights } from "@vercel/speed-insights/react"
 
 function App() {
   return (
